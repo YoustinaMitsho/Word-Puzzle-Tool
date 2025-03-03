@@ -491,6 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840fbf23d9635c846b5e4169334c703d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelImage: {fileID: 5968190932336608116}
+  _levelImage: {fileID: 0}
   _levelName: {fileID: 3189711527593129037}
   _levelCreationMode: {fileID: 6309426944061691212}

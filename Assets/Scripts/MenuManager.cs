@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
     public static int Levels_Generated { get; private set; }
     void Awake()
     {
+        //LevelList.Instance.PopulateList();  
         DontDestroyOnLoad(gameObject);
     }
 
@@ -30,7 +31,15 @@ public class MenuManager : MonoBehaviour
     {
         if (int.TryParse(value, out int result))
         {
-            Levels_Generated = result;
+            // see if we have that number in level list
+            if(result <= Level.levels.Count)
+                Levels_Generated = result;
+            else
+            {
+                // adjust to show a message in the ui and not an error
+                Debug.LogError("Level number out of range.");
+            }
         }
     }
+
 }

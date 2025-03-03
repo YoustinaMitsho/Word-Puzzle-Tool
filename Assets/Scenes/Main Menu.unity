@@ -885,7 +885,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 779721915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1652465061}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: Start_Game
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &779721915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelItemParent: {fileID: 1737117976}
-  _levelItemPrefab: {fileID: 6976655149110780857, guid: f646137e387414843ba1e638fc96ce10, type: 3}
+  _ItemPrefab: {fileID: 8641394581599455654, guid: f646137e387414843ba1e638fc96ce10, type: 3}
 --- !u!1 &960530932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652465062}
   - component: {fileID: 1652465061}
+  - component: {fileID: 1652465063}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1782,6 +1795,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652465063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652465060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ef4434c98f2ac4b898bd5d422112a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_count: 1
+  level_name: Illness
+  level_creation_mode: Inespictor
+  level_parts: 1
+  images:
+  - {fileID: 21300000, guid: 2673a7fc3299ac3458fb86dff2430aca, type: 3}
+  no_of_choices: 2
+  no_of_choices_list:
+  - Give Water
+  - Give Medicine
+  RightChoice: Give Medicine
+  External_animation: 0
+  Good_Anim: {fileID: 0}
+  Bad_Anim: {fileID: 0}
+  Default_Anim: 1
 --- !u!1 &1737117975
 GameObject:
   m_ObjectHideFlags: 0

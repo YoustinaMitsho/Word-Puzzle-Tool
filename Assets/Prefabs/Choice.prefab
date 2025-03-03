@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2534402161323715774}
   - component: {fileID: 7119383847821019927}
   - component: {fileID: 8530673462122021758}
+  - component: {fileID: -4685410344302943596}
   m_Layer: 5
   m_Name: Choice
   m_TagString: Untagged
@@ -117,10 +118,34 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 7119383847821019927}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8213625643550746618}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4685410344302943596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213625643550746618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6833555a90cde8443b10355c2d5f4437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8605084970869069049
 GameObject:
   m_ObjectHideFlags: 0
