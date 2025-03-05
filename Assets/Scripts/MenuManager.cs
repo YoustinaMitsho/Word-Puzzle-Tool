@@ -10,11 +10,13 @@ public class MenuManager : MonoBehaviour
 {
     [Header("References:")]
     [SerializeField] TMP_InputField _levelNumber;
-    public static int CurrentLevel = -1;
-    public static int Levels_Generated { get; private set; } = -1;
+    public static int CurrentLevel;
+    public static int Levels_Generated;
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        CurrentLevel = -1;
+        Levels_Generated = -1;
     }
 
     void Start()

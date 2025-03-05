@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChoiceItem : MonoBehaviour
 {
-    TextMeshProUGUI _ChoiceAnswers;
+    [SerializeField] private TextMeshProUGUI _ChoiceAnswers;
     private Button _button;
-    private Level _level;
+    public static string _rightChoice;
+    [SerializeField] private GameObject _confetii;
+    public static bool IsTrueAns = false;
 
     void Awake()
     {
-        _ChoiceAnswers = GetComponent<TextMeshProUGUI>();
         _button = GetComponent<Button>();
 
         if (_button != null)
@@ -21,21 +23,20 @@ public class ChoiceItem : MonoBehaviour
         }
     }
 
-    public void initialise(Level level, int index)
-    {
-        _ChoiceAnswers.text = level.no_of_choices_list[index];
-        _level = level;
-    }
-
     private void OnChoiceClicked()
     {
-        if (_ChoiceAnswers.text == _level.RightChoice)
+        print(_ChoiceAnswers.text);
+        print("level: " + _rightChoice);
+        if (_ChoiceAnswers.text == _rightChoice)
         {
-            // play good anim
+            GameObject obj = Instantiate(_confetii, new Vector3(0,2,0), Quaternion.identity);
+            //obj.GetComponent<ParticleSystem>().Play();
+            IsTrueAns = true;
         }
         else
         {
-            // play bad anim
+            FindObjectOfType<WrongAnswerEffect>().TriggerEffect();
+            IsTrueAns = false;
         }
     }
 }

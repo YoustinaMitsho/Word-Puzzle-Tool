@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6833555a90cde8443b10355c2d5f4437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ChoiceAnswers: {fileID: 5737721321647656949}
+  _confetii: {fileID: 2507985994617002729, guid: 55216d1f2871c0b42af53c2c4c76816f, type: 3}
 --- !u!1 &8605084970869069049
 GameObject:
   m_ObjectHideFlags: 0

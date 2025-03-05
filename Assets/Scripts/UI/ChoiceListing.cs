@@ -27,7 +27,6 @@ public class ChoiceListing : MonoBehaviour
         else if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -43,6 +42,12 @@ public class ChoiceListing : MonoBehaviour
 
         print("Create level: " +  index);
 
+        for (int i = transform.childCount - 1; i >= 1; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+
         for (int i = 0; i < Level.levels[index].no_of_choices_list.Count; i++)
         {
             obj = Instantiate(prefab, transform);
@@ -50,6 +55,8 @@ public class ChoiceListing : MonoBehaviour
                 Level.levels[index].no_of_choices_list[i];
 
             obj.GetComponent<Button>().AddEventListener(i, ItemClicked);
+
+            ChoiceItem._rightChoice = Level.levels[index].RightChoice;
         }
 
         Destroy(prefab);
@@ -57,6 +64,7 @@ public class ChoiceListing : MonoBehaviour
 
     void ItemClicked(int itemIndex)
     {
-        GameManager._choice_clicked = true;
+        if(ChoiceItem.IsTrueAns)
+            GameManager._choice_clicked = true;
     }
 }
