@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,19 +12,40 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelName;
     [SerializeField] private Image _levelSlider;
 
+    public static bool _choice_clicked = false;
+    int i = 0;
+
     void Start()
     {
-        MakeLevel();
-        Invoke(nameof(LevelList.Instance.PopulateList), 0.1f);
+        if (MenuManager.CurrentLevel != -1) MakeCertainLevel();
+        if (MenuManager.Levels_Generated != -1) MakeLevels();
     }
 
-    private void MakeLevel()
+    void Update()
     {
-        for (int i = 0; i < MenuManager.Levels_Generated; i++)
+        if (_choice_clicked)
         {
-            _levelImage.sprite = Level.levels[i].images[0];
-            _levelName.text = Level.levels[i].level_name;
-            _levelSlider.fillAmount = i / (float)Level.levels[i].images.Count;
+            i++;
+            _choice_clicked = false;
+            MakeLevels();
         }
+    }
+
+    public void MakeLevels()
+    {
+        _levelImage.sprite = Level.levels[i].level_image;
+        _levelName.text = Level.levels[i].level_name;
+        _levelSlider.fillAmount = 0;
+        print("loop: " + i);
+        ChoiceListing.instance.GenerateChoices(i);
+
+        if (i == MenuManager.Levels_Generated) return;
+    }
+
+    public void MakeCertainLevel()
+    {
+        _levelImage.sprite = Level.levels[MenuManager.CurrentLevel].level_image;
+        _levelName.text = Level.levels[MenuManager.CurrentLevel].level_name;
+        _levelSlider.fillAmount = 0;
     }
 }

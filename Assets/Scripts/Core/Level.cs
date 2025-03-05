@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Level
 {
-    public static int levels_count = 0;
+    //public static int levels_count = 0; // not handeled correctly
     public string level_name;
     public string level_creation_mode;
     public int level_parts;
-    public List<Sprite> images;
+    public Sprite level_image;
     public int no_of_choices;
     public List<string> no_of_choices_list;
     public string RightChoice;
@@ -21,14 +21,57 @@ public class Level
 
     public Level()
     {
-        images = new List<Sprite>(new Sprite[level_parts]);
-        no_of_choices_list = new List<string>(new string[no_of_choices]);
+        no_of_choices_list = new List<string>();
+    }
 
-        if (External_animation)
+    public Level(string name, string mode, int parts, int number_choices, bool externalAnim,
+    Sprite imageSprites, string[] choices, int idx_of_right_choice, Sprite goodAnim = null, Sprite badAnim = null,
+    bool defaultAnim = true)
+    {
+        level_name = name;
+        level_creation_mode = mode;
+        level_parts = parts;
+        no_of_choices = number_choices;
+        RightChoice = choices[idx_of_right_choice];
+        External_animation = externalAnim;
+        Default_Anim = defaultAnim;
+        level_image = imageSprites;
+        no_of_choices_list = new List<string>();
+
+        for (int i = 0; i < choices.Length; i++)
         {
-            Good_Anim = null;
-            Bad_Anim = null;
+            no_of_choices_list.Add(choices[i]);
         }
+
+        Good_Anim = goodAnim;
+        Bad_Anim = badAnim;
+
+        //levels_count++;
+        //levels.Add(this);
+    }
+
+
+    static Level()
+    {
+        AddDefaultLevels();
+    }
+
+    private static void AddDefaultLevels()
+    {
+        levels.Add(new Level(
+            "I am ill", "Pre-Built", 1, 2, false,
+            Resources.Load<Sprite>("Images/level1_img1"),
+            new string[] { "Give Her Water", "Give Her Medicine" }, 1
+        ));
+
+        levels.Add(new Level(
+            "I broke my Arm", "Pre-Built", 1, 3, true,
+            Resources.Load<Sprite>("Images/level2_img1"),
+            new string[] { "Give Him Bandage", "Touch It" }, 0,
+            Resources.Load<Sprite>("Animations/good2")
+        ));
+
+        //levels_count = levels.Count;
     }
 
 }
