@@ -10,7 +10,6 @@ public class ChoiceItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ChoiceAnswers;
     private Button _button;
     public static string _rightChoice;
-    [SerializeField] private GameObject _confetii;
     public static bool IsTrueAns = false;
 
     void Awake()
@@ -29,12 +28,13 @@ public class ChoiceItem : MonoBehaviour
         print("level: " + _rightChoice);
         if (_ChoiceAnswers.text == _rightChoice)
         {
-            GameObject obj = Instantiate(_confetii, new Vector3(0,2,0), Quaternion.identity);
-            //obj.GetComponent<ParticleSystem>().Play();
+            FindObjectOfType<WrongAnswerEffect>().SetEffectColor(Color.green);
+            FindObjectOfType<WrongAnswerEffect>().TriggerEffect();
             IsTrueAns = true;
         }
         else
         {
+            FindObjectOfType<WrongAnswerEffect>().SetEffectColor(Color.red);
             FindObjectOfType<WrongAnswerEffect>().TriggerEffect();
             IsTrueAns = false;
         }

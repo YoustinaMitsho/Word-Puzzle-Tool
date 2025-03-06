@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         if (_choice_clicked)
         {
             i++;
-            if (i == MenuManager.Levels_Generated)
+            if (i == MenuManager.Levels_Generated || i == MenuManager.CurrentLevel)
             {
                 Exit();
             }
@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
             {
                 _choice_clicked = false;
                 MakeLevels();
-            }    
+            }
         }
 
-        if( i >= MenuManager.CurrentLevel && MenuManager.Levels_Generated == -1)
+        if (i > MenuManager.CurrentLevel && MenuManager.Levels_Generated == -1)
         {
             MainMenu();
         }

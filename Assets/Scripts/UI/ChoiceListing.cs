@@ -40,7 +40,7 @@ public class ChoiceListing : MonoBehaviour
         if (index == -1 && MenuManager.CurrentLevel == -1) return;
         if (index == -1) index = MenuManager.CurrentLevel;
 
-        print("Create level: " +  index);
+        print("Create level: " + index);
 
         for (int i = transform.childCount - 1; i >= 1; i--)
         {
@@ -64,7 +64,16 @@ public class ChoiceListing : MonoBehaviour
 
     void ItemClicked(int itemIndex)
     {
-        if(ChoiceItem.IsTrueAns)
-            GameManager._choice_clicked = true;
+        if (ChoiceItem.IsTrueAns)
+        {
+            StartCoroutine(WaitForChange());
+        }
+            
+    }
+
+    IEnumerator WaitForChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager._choice_clicked = true;
     }
 }

@@ -22,11 +22,11 @@ public class LevelListing : MonoBehaviour
         GameObject prefab = transform.GetChild(0).gameObject;
         GameObject obj;
         //print(Level.levels.Count);
-        for(int i = 0; i < Level.levels.Count; i++)
+        for (int i = 0; i < Level.levels.Count; i++)
         {
             obj = Instantiate(prefab, transform);
             obj.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Level.levels[i].level_name;
-            obj.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Level.levels[i].level_creation_mode;
+            obj.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Pre-Built Trial Level";
             obj.transform.GetChild(0).GetComponent<Image>().sprite = Level.levels[i].level_image;
 
             obj.GetComponent<Button>().AddEventListener(i, ItemClicked);
@@ -37,7 +37,7 @@ public class LevelListing : MonoBehaviour
 
     void ItemClicked(int itemIndex)
     {
-        //print("level listing index: "   + itemIndex);
         MenuManager.CurrentLevel = itemIndex;
     }
+
 }

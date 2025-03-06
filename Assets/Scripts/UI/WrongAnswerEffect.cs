@@ -4,8 +4,11 @@ using UnityEngine.UI;
 public class WrongAnswerEffect : MonoBehaviour
 {
     private Image effectImage;
+
+    [SerializeField] private Color effectColor = Color.red;
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private float maxScale = 1.2f;
+
     private float currentTime = 0f;
     private bool isPlaying = false;
 
@@ -13,7 +16,7 @@ public class WrongAnswerEffect : MonoBehaviour
     {
         effectImage = GetComponent<Image>();
         effectImage.sprite = CreateCircleSprite();
-        effectImage.color = new Color(1f, 0f, 0f, 0f);
+        effectImage.color = new Color(effectColor.r, effectColor.g, effectColor.b, 0f);
     }
 
     void Update()
@@ -29,14 +32,14 @@ public class WrongAnswerEffect : MonoBehaviour
                 transform.localScale = new Vector3(scale, scale, 1f);
 
                 float alpha = Mathf.Sin(t * Mathf.PI);
-                effectImage.color = new Color(1f, 0f, 0f, alpha);
+                effectImage.color = new Color(effectColor.r, effectColor.g, effectColor.b, alpha);
             }
             else
             {
                 isPlaying = false;
                 currentTime = 0f;
                 transform.localScale = Vector3.one;
-                effectImage.color = new Color(1f, 0f, 0f, 0f);
+                effectImage.color = new Color(effectColor.r, effectColor.g, effectColor.b, 0f);
             }
         }
     }
@@ -45,6 +48,11 @@ public class WrongAnswerEffect : MonoBehaviour
     {
         isPlaying = true;
         currentTime = 0f;
+    }
+
+    public void SetEffectColor(Color newColor)
+    {
+        effectColor = newColor;
     }
 
     private Sprite CreateCircleSprite()
