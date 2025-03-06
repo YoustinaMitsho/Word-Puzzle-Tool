@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class ChoiceItem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _ChoiceAnswers;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _wrongAns;
+    [SerializeField] private AudioClip _rightAns;
+
     private Button _button;
     public static string _rightChoice;
     public static bool IsTrueAns = false;
@@ -30,12 +34,14 @@ public class ChoiceItem : MonoBehaviour
         {
             FindObjectOfType<WrongAnswerEffect>().SetEffectColor(Color.green);
             FindObjectOfType<WrongAnswerEffect>().TriggerEffect();
+            _audioSource.PlayOneShot(_rightAns);
             IsTrueAns = true;
         }
         else
         {
             FindObjectOfType<WrongAnswerEffect>().SetEffectColor(Color.red);
             FindObjectOfType<WrongAnswerEffect>().TriggerEffect();
+            _audioSource.PlayOneShot(_wrongAns);
             IsTrueAns = false;
         }
     }

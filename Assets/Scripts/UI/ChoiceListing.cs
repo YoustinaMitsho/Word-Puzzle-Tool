@@ -73,7 +73,7 @@ public class ChoiceListing : MonoBehaviour
 
     IEnumerator WaitForChange()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.2f);
         GameManager._choice_clicked = true;
     }
 }
