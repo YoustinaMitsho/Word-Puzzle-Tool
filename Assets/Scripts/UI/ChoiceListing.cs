@@ -64,7 +64,7 @@ public class ChoiceListing : MonoBehaviour
 
     void ItemClicked(int itemIndex)
     {
-        if (ChoiceItem.IsTrueAns)
+        if (ChoiceItem.IsTrueAns && !GameManager._choice_clicked)
         {
             StartCoroutine(WaitForChange());
         }

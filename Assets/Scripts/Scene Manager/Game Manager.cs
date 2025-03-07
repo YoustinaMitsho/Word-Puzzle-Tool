@@ -24,41 +24,51 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (MenuManager.CurrentLevel != -1) MakeCertainLevel();
-        if (MenuManager.Levels_Generated != -1) MakeLevels();
+        if (MenuManager.CurrentLevel != -1)
+        {
+            i = MenuManager.CurrentLevel;
+            MakeCertainLevel();
+        }
+        else if (MenuManager.Levels_Generated != -1)
+        {
+            i = 0;
+            MakeLevels();
+        }
     }
 
     void Update()
     {
         if (_choice_clicked)
         {
+            _choice_clicked = false;
             i++;
-            if (i == MenuManager.Levels_Generated || i == MenuManager.CurrentLevel)
+            if (i >= MenuManager.Levels_Generated || i >= Level.levels.Count)
             {
                 Exit();
             }
             else
             {
-                _choice_clicked = false;
                 MakeLevels();
             }
         }
-
-        if (i > MenuManager.CurrentLevel && MenuManager.Levels_Generated == -1)
+/*
+        if (i > MenuManager.CurrentLevel && MenuManager.Levels_Generated == -1 ||
+            i >= Level.levels.Count && ChoiceItem.IsTrueAns)
         {
             MainMenu();
-        }
+        }*/
     }
 
     public void MakeLevels()
     {
+        if (i >= Level.levels.Count) return;
+
         _levelImage.sprite = Level.levels[i].level_image;
         _levelName.text = Level.levels[i].level_name;
         _levelSlider.fillAmount = 0;
         print("loop: " + i);
         ChoiceListing.instance.GenerateChoices(i);
 
-        if (i == MenuManager.Levels_Generated) return;
     }
 
     public void MakeCertainLevel()

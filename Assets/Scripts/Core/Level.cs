@@ -67,6 +67,11 @@ public class Level
             new string[] { "Give Him Bandage", "Touch It", "Continue Playing" }, 0
         ));
 
+        /*levels.Add(new Level(
+            "Someone is bulled", 3, Resources.Load<Sprite>("Images/level3_img1"),
+            new string[] { "Step in", "Leave", "Laugh with the bullies" }, 0
+        ));*/
+
         //levels_count = levels.Count;
     }
 

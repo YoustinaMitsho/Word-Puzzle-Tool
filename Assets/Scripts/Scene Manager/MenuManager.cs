@@ -28,7 +28,10 @@ public class MenuManager : MonoBehaviour
     public void Start_Game()
     {
         if (Levels_Generated > -1)
+        {
+            CurrentLevel = 0;
             SceneManager.LoadScene(Tags.Level_Scene);
+        }
         if (_levelNumber.text == string.Empty)
             ShowEmptyWarning();
     }
