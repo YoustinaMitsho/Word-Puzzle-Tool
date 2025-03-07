@@ -38,7 +38,7 @@ Word To Puzzle Generator allows players to interact with a puzzle system where t
 - **Demo Video:** [[VideoLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Word-Puzzle-Tool%20.mp4)]
 - **Documentation Draft:** [[DocumentationLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Initial%20draft%20.pdf)]
 
-##📜 **Initial Documentation**
+## 📜 **Initial Documentation**
 
 As part of the development process, an initial draft was created outlining how the game would be coded. This document reflects the original vision for the project. However, due to time constraints and gaps in knowledge on certain topics, not all intended features could be fully implemented. Despite this, working on this project has been an incredible learning experience, and I have gained valuable insights into game level generating. I look forward to receiving feedback and reviews to further improve my skills! 🚀
 
