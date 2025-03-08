@@ -35,7 +35,7 @@ Word To Puzzle Generator allows players to interact with a puzzle system where t
 ## 📂 Repository & Build
 
 - **Android APK:** [[DownloadLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Word%20To%20Puzzle%20Generator.apk)]
-- **Demo Video:** [[VideoLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Word-Puzzle-Tool%20.mp4)]
+- **Demo Video:** [[VideoLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Word%20To%20Puzzle%20Generator.mp4)]
 - **Documentation Draft:** [[DocumentationLink](https://github.com/YoustinaMitsho/Word-Puzzle-Tool/blob/main/Initial%20draft%20.pdf)]
 
 ## 📜 **Initial Documentation**
